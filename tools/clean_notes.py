@@ -289,9 +289,9 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
         epilog=textwrap.dedent(
             """\
             Examples:
-              python3 cpp_interview/tools/clean_notes.py
-              python3 cpp_interview/tools/clean_notes.py --output-dir notes/cleaned
-              python3 cpp_interview/tools/clean_notes.py --download-images
+              python3 tools/clean_notes.py
+              python3 tools/clean_notes.py --output-dir notes/cleaned
+              python3 tools/clean_notes.py --download-images
             """
         ),
     )

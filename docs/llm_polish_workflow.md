@@ -2,7 +2,7 @@
 
 ## 1. 现在的状态
 
-当前副本目录：`/home/ub/cx_ws/cpp_interview/notes/cleaned`
+当前副本目录：`/home/ub/cx_ws/notes/cleaned`
 
 这一版已经完成的确定性清洗：
 
@@ -132,19 +132,19 @@
 
 先做“高价值、阅读收益大”的文件：
 
-- [09-网络基础.md](/home/ub/cx_ws/cpp_interview/notes/cleaned/09-网络基础.md:1)
-- [10-网络编程.md](/home/ub/cx_ws/cpp_interview/notes/cleaned/10-网络编程.md:1)
-- [02-数据结构.md](/home/ub/cx_ws/cpp_interview/notes/cleaned/02-数据结构.md:1)
-- [03-Linux基础.md](/home/ub/cx_ws/cpp_interview/notes/cleaned/03-Linux基础.md:1)
-- [21-CPP进阶.md](/home/ub/cx_ws/cpp_interview/notes/cleaned/21-CPP进阶.md:1)
+- [09-网络基础.md](/home/ub/cx_ws/notes/cleaned/09-网络基础.md:1)
+- [10-网络编程.md](/home/ub/cx_ws/notes/cleaned/10-网络编程.md:1)
+- [02-数据结构.md](/home/ub/cx_ws/notes/cleaned/02-数据结构.md:1)
+- [03-Linux基础.md](/home/ub/cx_ws/notes/cleaned/03-Linux基础.md:1)
+- [21-CPP进阶.md](/home/ub/cx_ws/notes/cleaned/21-CPP进阶.md:1)
 
 第二批再做“大而重要”的文件：
 
-- [19-STL.md](/home/ub/cx_ws/cpp_interview/notes/cleaned/19-STL.md:1)
-- [14-类与对象.md](/home/ub/cx_ws/cpp_interview/notes/cleaned/14-类与对象.md:1)
-- [15-友元与继承.md](/home/ub/cx_ws/cpp_interview/notes/cleaned/15-友元与继承.md:1)
-- [22-CPP网络编程.md](/home/ub/cx_ws/cpp_interview/notes/cleaned/22-CPP网络编程.md:1)
-- [25-Workflow框架与库.md](/home/ub/cx_ws/cpp_interview/notes/cleaned/25-Workflow框架与库.md:1)
+- [19-STL.md](/home/ub/cx_ws/notes/cleaned/19-STL.md:1)
+- [14-类与对象.md](/home/ub/cx_ws/notes/cleaned/14-类与对象.md:1)
+- [15-友元与继承.md](/home/ub/cx_ws/notes/cleaned/15-友元与继承.md:1)
+- [22-CPP网络编程.md](/home/ub/cx_ws/notes/cleaned/22-CPP网络编程.md:1)
+- [25-Workflow框架与库.md](/home/ub/cx_ws/notes/cleaned/25-Workflow框架与库.md:1)
 
 第三批做其余文件。
 

@@ -1,6 +1,6 @@
 # cpp_interview
 
-这个目录把原来的 `CppNotes/`、`CppNotes_refined/` 和 `tools/` 合并成一个统一项目。
+这个仓库把原来的 `CppNotes/`、`CppNotes_refined/` 和 `tools/` 合并成一个统一项目。
 
 ## 目录结构
 
@@ -21,6 +21,7 @@
   - 笔记清洗和辅助脚本。
 - `docs/`
   - 清洗 SOP、LLM 工作单等项目文档。
+  - 也包含 Git 提交流程说明。
 - `archive/`
   - 原始资料压缩归档。
 
@@ -28,7 +29,7 @@
 
 `CppNotes/` 和 `CppNotes_refined/` 中的 `ROLE.md` 与 `AGENT.md` 内容一致，没有版本差异，因此不应该继续各放一份。更合理的做法是：
 
-1. 把 `ROLE.md` 和 `AGENT.md` 提升到 `cpp_interview/` 根目录。
+1. 把 `ROLE.md` 和 `AGENT.md` 提升到仓库根目录。
 2. 把 `notes/source/` 和 `notes/cleaned/` 只当作内容目录，不再放项目级角色说明。
 3. 只有在某个子目录需要独立工作规则时，才在该子目录额外新增一份局部 `AGENT.md` 或 `ROLE.md`。
 
@@ -37,8 +38,8 @@
 - `ROLE.md` 约束的是整个项目的导师身份，不依赖原始笔记还是 refined 笔记。
 - `AGENT.md` 约束的是整个项目的推进方式，也不应绑定到某一套笔记副本。
 - `notes/source/` 和 `notes/cleaned/` 的差别是内容状态，不是角色状态。
-- `PROJECT_GUIDE.md` 负责统一导航，因此也应该放在项目根目录。
-- `docs/` 中的流程文档属于项目文档，也应随项目一起管理，而不是留在工作区根目录。
+- `PROJECT_GUIDE.md` 负责统一导航，因此也应该放在仓库根目录。
+- `docs/` 中的流程文档属于项目文档，也应与项目内容同级管理。
 
 ## 以后怎么扩展
 
@@ -55,6 +56,6 @@
 
 建议保留方式：
 
-1. 在 `cpp_interview/archive/` 中保留一份最初 `CppNotes/` 的 zip 归档。
-2. 项目日常使用统一切换到 `cpp_interview/` 目录。
-3. SOP 和工作单统一放在 `cpp_interview/docs/`。
+1. 在 `archive/` 中保留一份最初 `CppNotes/` 的 zip 归档。
+2. 项目日常使用统一切换到仓库根目录。
+3. SOP、工作单和 Git 流程说明统一放在 `docs/`。

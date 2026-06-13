@@ -1,16 +1,16 @@
 # cpp_interview Guide
 
-这个文件作为 `cpp_interview/` 的统一入口，优先回答“先看什么、从哪里开始用”。
+这个文件作为仓库统一入口，优先回答“先看什么、从哪里开始用”。
 
 ## 先看哪里
 
 如果你是第一次进入这个项目，建议按下面顺序：
 
-1. [README.md](/home/ub/cx_ws/cpp_interview/README.md:1)
+1. [README.md](/home/ub/cx_ws/README.md:1)
    - 先理解项目结构和文件职责。
-2. [ROLE.md](/home/ub/cx_ws/cpp_interview/ROLE.md:1)
+2. [ROLE.md](/home/ub/cx_ws/ROLE.md:1)
    - 明确导师角色、工作视角和目标边界。
-3. [AGENT.md](/home/ub/cx_ws/cpp_interview/AGENT.md:1)
+3. [AGENT.md](/home/ub/cx_ws/AGENT.md:1)
    - 明确执行方式、输出格式和推进规则。
 4. `notes/cleaned/`
    - 默认优先使用这套清洗后的笔记做复习和面试准备。
@@ -53,4 +53,4 @@
 
 - 日常复习默认只看 `notes/cleaned/`。
 - 只有在需要校对原文时，才回看 `notes/source/` 或 `archive/source_notes_backup.zip`。
-- 不再使用工作区根目录的旧 `CppNotes/`、`CppNotes_refined/`、`tools/`。
+- 不再使用旧的 `CppNotes/`、`CppNotes_refined/` 目录结构。
