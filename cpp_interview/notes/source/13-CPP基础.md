@@ -1,0 +1,401 @@
+面向对象的特点：封装、继承、多态
+
+- 面向过程的编程范式 --> 思维方式
+- 面向对象的编程范式 --> 对象论    面向对象的本质特征：消息传递
+- **泛型编程**  模板的定义和实现（最难，抽象级别更高）
+- _模板元编程  难以入门   —— 设计（实现）库的时候使用SDK_
+- _函数式编程_
+
+一门集大成的语言，包罗万象<br />宜 不求甚解，抓 主要矛盾，不过分追求 细枝末节
+
+- C语言诞生于1972 年
+
+本身也是可以写出面向（基于）对象的代码 Linux Kernel 模块化很高<br />发展11年后，代码量大 后，管理起来很困难，面向图形化界面 困难
+
+- C++诞生于1983年   Bjarne Stroustrup  
+
+2003（第二个C++标准） ->  2011 （第三个C++标准）2000年互联网泡沫破灭<br />C++11标准称为**现代C++，革命性的**（之前的被称为上古C++, 开发效率低）<br />应用常用 C++11 / C++14  ( C++17尚需踩坑）
+
+
+C++编译器：
+
+-  gcc  g++（ GNU ）   
+- clang ：  gcc的 5 ~ 10倍
+- 大型项目的编译是以 **小时 **为单位的
+
+C++擅长领域：
+
+- 区块链 BTC/ETC/EOS 底层都是**纯C++**  19年 百万
+- **Qt ** 纯C++  桌面级嵌入式  常用图形库
+- 音视频领域 腾讯会议（C++）
+- 微信后台： **C++开发（Go语言）**
+- **通信领域 **
+- **金融领域**
+- **游戏领域：OpenGL**
+- **计算机视觉： OpenCV**
+
+C++文件后缀名
+
+- linux:   .cc
+- windows:   .cpp
+
+$ g++ hello.cc  ( -o  name  ) <br />与C语言相比，**区别**：
+
+1. 与C语言相比，头文件没有 *.h的后缀，标准库都是**模板**实现的，模板必须要看到完整的实现；
+1. 引入了**命名空间**的概念；
+1. 输出的方式不同，**cout**是一个**流对象**，与printf库函数是不同的：
+1. 左移运算符（C语言中）  对流对象操作时，表示的是输出运算符
+
+
+<a name="twBSx"></a>
+## 1. CPP与C区别
+<a name="OVNmn"></a>
+#### 1. 命名空间
+0. 引入目的：<br />多人合作的大项目合并时，可能存在命名冲突 (变量名相同，函数名相同，或者struct相同 )<br />C解决方式： 命名添加前缀或后缀 ( 公司_模块_ funcName ) 
+
+1. 使用：
+
+1. 命名空间可以嵌套使用
+1. using namespace xxx;   // using编译指令
+1. **using 命名空间 : : 实体 ；**推荐使用
+1. anonymous namespace  （** 可以兼容C语言** ）
+   - 一个 *.c / *.cc / *.cpp文件  就是一个模块
+- C语言中，static变量 static函数都只能在**本模块内部**使用，外部无法引用
+- C++中，匿名命名空间的实体也是只能在**本模块内部**使用  
+
+只能在本模块内部使用,  不能跨模块使用
+```cpp
+// 全局变量
+int g_num = 1; // 跨模块调用
+static int s_num = 2; // 只能在本模块使用
+
+// 1.cc
+int g_num2 = 10;
+// 2.cc
+extern int g_num2;
+1. $ g++ 1.cc 2.cc
+    2. 可以跨模块调用
+    
+  :: 实体  // 等同于本模块的同名的 全局变量
+```
+
+匿名空间的 实体 ， 不能 跨模块 调用，功能与static一致。<br />![image.png](https://cdn.nlark.com/yuque/0/2022/png/916648/1652084808734-ea74a9e6-7265-40e4-beb5-e5cabf5df26c.png#clientId=u8a4edf50-3c8a-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=361&id=uec754bc7&margin=%5Bobject%20Object%5D&name=image.png&originHeight=451&originWidth=959&originalType=binary&ratio=1&rotation=0&showTitle=false&size=361908&status=done&style=none&taskId=ub2403354-e3db-4bdc-8459-86e000c958a&title=&width=767.2)
+
+具体命名空间  可以在 **main上**、**main下** 和 **其他模块**中 不停添加实体。
+
+- 同一个模块中，可以定义多次一个具体命名空间
+- 不同模块中，可以定义多次一个具体命名空间
+
+在函数内部直接访问number，得到的 是形参number的值<br />这里发生了屏蔽现象，遵循就近原则。
+
+<a name="wofIL"></a>
+#### 2. const
+
+1. 修饰变量类型( char / short / int / long ... ) 不能再修改变量的值 -> 常量
+
+ const常量与宏定义的区别是什么？ （ 面试常考点 ）<br />1）编译器处理方式不同。宏定义是在**预处理阶段**展开，做字符串的替换；而const常量是在**编译**时。 <br />2）类型和安全检查不同。宏定义没有类型，**不做任何类型检查**；const常量有具体的类型，在编译期会执行**类型检查**。 <br />在使用中，应尽量以**const关键字（或者 enum ）**替换宏定义，可以减小犯错误的概率。  <br />宏定义只做了简单字符串替换，在编译阶段没有报错,有可能到运行时才发现错误。
+
+2. [修饰指针](https://www.cnblogs.com/zero-py/p/7862231.html)：
+```cpp
+const int* p1 = &a; // pointer to const 不能修改 指针所指空间常量的值
+int const *p2 = &a; // pointer to const 不能修改 指针所指空间常量的值
+int* const p3 = &a; // const pointer 不能修改指针的指向
+
+指针指向常量(pointer to const):( const * ) 指针指向一个常量，常量的值不能修改
+常量指针(const pointer): ( * const  ) 指针是常量，指针指向不能改变
+
+int * p4 const = &a; // 不存在这种组合
+
+const int a = 10;
+// int* const p5 = &a; // 错误
+const int* const p6 = &a; // const pointer to const 都不能修改
+```
+
+- 数组**指针**： 指针指向一个匿名数组
+- 指针**数组**：数组的每个元素都是指针
+
+- 函数**指针**：int (*func) (  )  指针指向函数名的地址
+- 指针**函数**：int *func( )  函数的返回值是指针
+
+前面为修饰词，后面为主体
+
+<a name="TwaTT"></a>
+#### 3. new / delete
+C语言中动态申请堆空间的资源，malloc / calloc<br />C++   new / delete
+```cpp
+int * pInt =  new int(6);  // new表达式 申请一个int空间并同时初始化为6
+int * pArr =  new int[10];  // array []
+int * pArr =  new int[10]();  // array []  ()初始化0
+
+delete pInt; // 释放堆空间
+delete[] pArr; // delete pArr虽然没有报错，但是Mismatched  EROR
+```
+new / delete 要成对出现，**申请数组**和**回收数组**空间时要加上[ ]<br />**malloc与free配对使用，new与delete配对使用，不能交叉，否则会发生内存泄漏 ** 
+
+问题： <br />malloc( ) 的底层实现？<br />    brk系统调用<br /> new的底层实现？ <br /> free( ); 如何判断该回收多少空间
+
+_what / how /why   学习知识的三层思考_
+
+< 128K  brk是将数据段(.data)的最高地址指针_edata往高地址推<br />>128K   mmap是在进程的虚拟地址空间中（堆和栈中间，称为文件映射区域的地方）找一块空闲的虚拟内存。<br />这两种方式分配的都是虚拟内存，没有分配物理内存。在第一次访问已分配的虚拟地址空间的时候，发生缺页中断，操作系统负责分配物理内存，然后建立虚拟内存和物理内存之间的映射关系。
+
+- brk分配的内存需要等到高地址内存释放以后才能释放
+- 当最高地址空间的空闲内存超过128K（可由M_TRIM_THRESHOLD选项调节）时，执行内存紧缩操作（trim）。在上一个步骤free的时候，发现最高地址空闲内存超过128K，于是内存紧缩。
+- [堆中的内存块总是成块分配的](https://www.cnblogs.com/zzdbullet/p/9635318.html)，堆中内存块的大小通常与内存对齐有关（8Byte(for 32bit system)或16Byte(for 64bit system)。
+
+面试实题：<br />Q : 野指针?  内存泄漏?  内存踩踏?<br />malloc  实现-> brk systemcall  -> kernel / user status -> malloc 如何优化?<br />-> 有些第三方库实现了优化，了解一下<br />Q : 频繁使用malloc / free  申请内存空间会产生什么问题?
+
+Q : malloc / free 和 new / delete 表达式的区别 是什么？
+
+- malloc/free 则是库函数，而 new/delete 是运算符；
+-  malloc 开辟空间需要手动计算大小并传入，new 是后接类型编辑器自己计算； 
+-  malloc 返回类型为 void*，使用时需要强制转换，new 返回类型就是后接的类型； 
+-  malloc 函数返回后需要判空使用，new 不需要，因为 new 失败后会抛出异常； 
+-  malloc 函数分配内存后，还可以使用 realloc 再次对分配的内存进行扩充或者缩小， new 分配好的内存不能这样被直观的改变； 
+-  new/delete 的底层实现使用了 malloc/free 
+-  malloc 申请内存位置是放在堆上，但是 new 申请内存的位置取决于 operator new 的细节实现，可能在自由存储区，也可以在堆上，也可以在栈上； 
+-  new/delete 在调用自定义对象时会自动调用对象的构造函数和析构函数，但是 malloc/free 不会去调用[。](https://blog.51cto.com/u_15057843/3513412) 
+
+区分以下概念：内存泄漏、内存溢出、内存踩踏、野指针？(面试常考)
+
+- 野指针 是指向一个已经删除的对象或未申请访问受限内存区域的指针
+- 内存溢出 是指程序在申请内存时，没有足够的内存空间供其使用，出现out of memory
+- 内存泄露 是指在堆中申请一块内存，但没有手动释放，导致指针消失，而指针指向的东西还在，但已经不能控制这块内存
+- 内存踩踏（内存重叠）是指访问了不合法的地址（访问了不属于自己的地址），如果访问的地址是其他变量的地址，就会破坏别人的数据，从而导致程序运行异常
+
+
+引用与指针的区别：<br />（1）定义上的区别：可以说指针即地址，因为指针是一个存储地址的变量，它指向内存的一个存储单元；引用即别名，引用跟原来的变量实质上是同一个东西，只不过是原变量的一个别名而已。<br />（2）指针的值可以为空，但是引用的值不能为NULL，并且引用在定义的时候必须初始化；<br />（3）引用定义时必须初始化，且在进行初始化后就不会再改变了。 指针可以不用， 正常情况下需初始化为NULL，且指针的值在初始化后可以改变，即指向其它的存储单元；<br />（4）sizeof求取的值不一样，"sizeof引用"得到的是所指向的变量(对象)的大小，而"sizeof指针"得到的是指针本身的大小；<br />（5）指针和引用的自增(++)与自减（--）运算意义不一样， 引用自加改变变量的内容， 指针自加改变了 指针指向；<br />（6）可以有多级指针， 但是没有多级引 用，（int **p；合法 而 int &&a是不合法的）；<br />（7）指针和引用的地址不同，引用的地址即所引用对象的地址。指针的地址就是它自己的地址，是内存中的一块实实在在的另一块内存；<br />（8）引用比指针更安全。不会出现像野指针这样的现象
+
+"引用"作为函数参数的特点：<br />（1）传递引用给函数与传递指针的效果是一样的。这时，被调函数的形参就成为原来主调函数中的实参变量或对象的一个别名来使用，所以在被调函数中对形参变量的操作就是对其相应的目标对象（在主调函数中）的操作。<br />(2）使用引用传递函数的参数，在内存中并没有产生实参的副本，它是直接对实参操作；而使用一般变量传递函数的参数，当发生函数调用时，需要给形参分配存储单元，形参变量是实参变量的副本；如果传递的是对象，还将调用拷贝构造函数。因此，当参数传递的数据较大时，用引用比用一般变量传递参数的效率和所占空间都好。<br />（3）使用指针作为函数的参数虽然也能达到与使用引用的效果，但是，在被调函数中同样要给形参分配存储单元，且需要重复使用"*指针变量名"的形式进行运算，这很容易产生错误且程序的阅读性较差；另一方面，在主调函数的调用点处，必须用变量的地址作为实参。而引用更容易使用，更清晰。
+
+使用"常引用"：<br />如果既要利用引用提高程序的效率，又要保护传递给函数的数据不在函数中被改变，就应使用常引用。常引用声明方式：const 类型标识符 &引用名=目标变量名；
+
+
+7. 什么是函数重载？其实现原理是什么？如何进行`C`与`C++`的混合编程？
+
+函数重载是 C++ 编程的一个特性，它允许使用多个具有相同名称但不同参数列表的函数<br />函数重载是编译时多态。发生函数调用时，编译器会根据传入的实参去逐个匹配，以选择对应的函数，如果匹配失败，编译器就会报错，这叫做重载决议（Overload Resolution）。<br />`C`与`C++`的混合编程 ： extern "C" { }
+
+8. 什么是`inline`函数？`inline`与带参数的宏定义之间的区别是什么？
+
+在c/c++中，为了解决一些频繁调用的小函数大量消耗栈空间（**栈内存**）的问题，特别的引入了inline修饰符，表示为内联函数<br />内联函数与宏定义区别<br />（1）内联函数在编译时展开，宏在预编译时展开；<br />（2）内联函数直接嵌入到目标代码中，宏是简单的做文本替换；<br />（3）内联函数有类型检测、语法判断等功能，而宏没有；<br />（4）inline函数是函数，宏不是；<br />（5）宏定义时要注意书写（参数要括起来）否则容易出现歧义，内联函数不会产生歧义
+
+<a name="a8HCd"></a>
+#### 内存泄漏的检测工具 ：  valgrind （ 面试高频考点 ）
+命令较长 ，起别名 alias<br />$ vim  ~/.bashrc 末尾
+```bash
+alias memcheck='valgrind --tool=memcheck --leak-check=full'
+```
+$ source .bashrc     // update,起作用
+
+<a name="ABIMw"></a>
+#### 4.  引用 （ reference ）
+&  ： 
+
+- 引用符号     
+- 取地址符号     
+- 按位与符号
+
+C++引用： 对变量起一个别名，对 引用 操作就是对 **本来对象** 操作<br />类型 & reference = varibles  // 引用不能独立存在<br />引用是变量的别名，**不能独立存在**， 必须初始化到**一个已经存在的对象，**一经绑定之后，就不会改变它的指向。  <br />引用的实质就是**指针常量（* const） int &ref2 **; 在**内存**上也会分配**一个指针**大小的空间。但编译器已经做了转化： 操作引用 等同于 操作被引用的实体。
+```cpp
+// 二者输出地址一样，编译器帮我们忽略了底层实现
+cout << &reference << endl;
+cout << &varibles << endl;
+```
+
+引用传递的方式：
+
+1. 值传递
+1. 地址传递（ 本质上 还是地址传递 ）
+1. 引用传递
+
+经典例子： 交换两个变量的值 swap( )
+```cpp
+void swap(int x, int y ){
+    int tmp = x;
+    x = y;
+    y = tmp;
+} // 获取到的参数 值传递 是 拷贝的
+
+void swap(int* px, int* py ){
+    int tmp = *px;
+    *px = *py;
+    *py = tmp;
+} // C语言 地址传递
+
+
+// 引用初始化时
+// int & x = a; // x绑定到a
+// int & y = b; // y绑定到b
+// 一旦绑定成功之后，操作下x，y就是操作a，b
+// 写法更直观，不再使用指针,引用代替指针，减少出错
+void swap(int &x, int &y ){
+    int tmp = x;
+    x = y;
+    y = tmp;
+} // C++ 引用传递
+
+// 1 与 3 不能同时存在，swap( )  ambiguous
+```
+
+引用的好处：
+
+- 没有复制的开销，可以提高程序的执行效率
+
+1. 引用作为函数的参数： 引用是一个传入传出参数（ 不需要使用二级指针 ）
+
+如果不希望参数在函数执行时被修改： const int &  x  常引用
+
+2. 引用作为函数的返回值
+- 类型的变量 ( int / struct )   
+
+在return语句中，直接返回一个变量，要执行的是**复制**
+
+- 指针类型  （  int * / myType * )
+
+只做了一个地址传递，效率很高，要执行**复制**
+
+- 引用类型  （  int & / myType & )
+
+**代表的就是变量本身，没有复制开销**
+```cpp
+//如果是引用作为函数的返回值，有一个前提条件：
+//返回的变量本身的生命周期一定要大于函数
+int & getValue(int idx)
+{
+	return arr[idx];
+}
+
+
+//不要返回一个局部变量的引用
+int & func()
+{
+	int x = 1;
+	cout << "x:" << x << endl;
+	return x;
+}
+
+//不要轻易返回一个堆空间变量的引用
+//除非已经有了内存回收的策略
+int & heapValue()
+{
+	int * pint = new int(10);
+	cout << "*pint:" << *pint << endl;
+	return *pint;
+}
+```
+引用作为返回值的前提条件： 
+
+- 返回的变量本身的生周期 一定要大于 函数的生命周期
+   - 返回全局变量   ok
+   - 不要轻易返回一个堆空间变量的引用，除非有了内存回收的策略，否则会造成内存泄漏
+- 不要返回一个局部变量的引用 （ 运行时错误 ）
+
+内存泄漏的危害 ：<br />空间会越来越少，直到没有足够的空间，程序崩溃。<br />程序崩溃之后，这些泄露的内存会被操作系统自动回收。<br />（ 服务器程序需要健壮运行7*24小时 ）_ nginx  一个通用web服务器_<br />不能保证100%内存回收，内存管理对程序员来说十分重要
+
+
+ C风格： type a  = ( type ) expression ; // 安全性很差，是否合法
+<a name="jjixj"></a>
+#### 5. C++的强制转换：
+static_cast / const_cast / dynamic_cast / reinterpret_cast
+
+1. **static_cast  常见指针转换   把void * 转换成其他类型的指针**
+```cpp
+ type a  = static_cast<type>( expression ) ;
+```
+
+2. const_cast  去除常量属性
+
+const_cast 转换后 并没有修改真正的 const 的常量的值<br />*p 的值保存在寄存器中，没有真正写入内存。 （ 一直非常态，少用）
+
+3. dynamic_cast  动态类型转换，只用在多态时，基类与派生类之间的转换
+3. reinterpret_cast 在任意类型之间转换，不要轻易使用
+
+<a name="Yb1w7"></a>
+#### 6. 重载 （ overload ）
+函数重载： 函数名相同，但参数列表不同（函数参数的类型、个数、顺序不同）<br />C语言本身不支持函数重载  (  Error :  conflicting  types  )<br />![image.png](https://cdn.nlark.com/yuque/0/2022/png/916648/1652172346753-99556dff-8a0d-4975-b6ad-4814296223d4.png#clientId=u8a4edf50-3c8a-4&crop=0.0391&crop=0.0223&crop=1&crop=1&from=paste&height=172&id=u1a40b216&margin=%5Bobject%20Object%5D&name=image.png&originHeight=224&originWidth=448&originalType=binary&ratio=1&rotation=0&showTitle=false&size=77079&status=done&style=none&taskId=u6320ab6d-4f0f-4180-a171-082adf19e62&title=&width=344)<br />C++支持函数重载的实现原理 ：  函数名相同，根据参数列表 name mangling
+```bash
+$ g++ -c overload.cc   // compile  ->   overload.o
+$ nm overload.o   // na，me mangling 查看函数的真实名字
+```
+![image.png](https://cdn.nlark.com/yuque/0/2022/png/916648/1652172034328-59e82a0b-bbe3-4afd-a1af-8312424fad8f.png#clientId=u8a4edf50-3c8a-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=374&id=ub446cf9a&margin=%5Bobject%20Object%5D&name=image.png&originHeight=468&originWidth=813&originalType=binary&ratio=1&rotation=0&showTitle=false&size=236277&status=done&style=none&taskId=u7ce93c23-a95a-4f00-b4ca-7079b761f31&title=&width=650.4)
+
+需求：C和/C++两种不同的函数调用方式 ，如何使C/C++二者混合编程？
+
+- C的库很多，重写成本太大
+- 希望在C++中以C的方式编译、调用C的源码
+
+解决方案：
+```cpp
+// 按C的方式调用，不会进行name mangling
+extern "C" {
+    ...
+} // end of extern "C"
+```
+![image.png](https://cdn.nlark.com/yuque/0/2022/png/916648/1652174754922-8fbd37ea-942e-4d67-97cb-a36b1221f495.png#clientId=u8a4edf50-3c8a-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=194&id=ud3b061ec&margin=%5Bobject%20Object%5D&name=image.png&originHeight=214&originWidth=369&originalType=binary&ratio=1&rotation=0&showTitle=false&size=94314&status=done&style=none&taskId=uc6b9a557-3bd1-4129-bd95-948e98a248f&title=&width=334.20001220703125)
+
+如果既有可能被C编译器编译，也有可能被C++编译器编译，则不需要 extern{}
+```cpp
+// C的编译器没有__cpluscplus宏，只有C++编译器有定义
+#ifdef __cplusplus
+extern "C"{
+#endif
+    
+    ...
+        
+#ifdef __cplusplus
+}//end of extern "C"
+#endif
+```
+
+<a name="sbe3c"></a>
+#### 7. 默认参数
+```cpp
+void func1(int x , int y, int z = 0);
+void func1(int x , int y = 0, int z = 0);
+void func1(int x = 0, int y = 0, int z = 0);
+```
+默认参数的设置要求必须从右到左进行（ 传参从左往右 ）<br /> 我们通常是将** 默认值** 的设置放在 **声明中 **而不是定义中。 ( 确保调用在设置默认值之后） 
+<a name="qYRlG"></a>
+#### 8. bool
+```cpp
+bool x = 0; // false
+bool y = 1; // true  非0都为true
+```
+整型数据： bool / char / short / int / long / long long <br />long 在32位系统占4个字节，在64位系统占8个字节
+
+指针占据多少字节： 在32位系统占4个字节，在64位系统占8个字节
+
+<a name="ICASl"></a>
+#### 9. inline函数
+C语言中，一些函数比较短，频繁调用，为减少开销： 宏函数<br />宏函数：带参数的宏定义 **预处理**阶段，没有安全检查
+```c
+#define multiply(x,y) ((x)*(y))  // 没问题
+```
+在C++中 ， 也有类似功能的函数，即 inline函数<br />inline函数没有普通函数的调用开销，在**编译时**，进行**语句替换**，在效率上与宏函数保持一致，但是更加安全。 
+```cpp
+inline
+int func(){}
+```
+inline函数的定义**只能**放在**头文件中**，**不能声明和实现分开**。<br />因为inline函数在编译时进行语句替换，尚未进入链接步骤，所以不放入头文件会报错。（ 如果inline函数定义在 *.cc / *.cpp 中，目标文件中不会生成 ）
+
+<a name="uWvZQ"></a>
+#### 10. 异常
+
+- throw
+- try catch
+
+不重要，这种方式并不好，会破坏代码风格，导致代码逻辑混乱，Google代码规范不推荐使用 异常。<br />一般会用系统日志替换。
+
+<a name="DDNMZ"></a>
+## 2. 内存布局
+ 以**32位( 地址线 数   232 = 4G  )**系统为例，**一个进程（用户态）**在执行时，能够访问的空间是**虚拟地址空间 **<br />![image.png](https://cdn.nlark.com/yuque/0/2022/png/916648/1652249041270-146ed9b8-6538-4315-adea-b13d79ef4afe.png#clientId=u8a4edf50-3c8a-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=305&id=u5308cb01&margin=%5Bobject%20Object%5D&name=image.png&originHeight=419&originWidth=741&originalType=binary&ratio=1&rotation=0&showTitle=false&size=82148&status=done&style=none&taskId=u6b66c6d4-97b9-4fba-99bd-fc7b6374307&title=&width=538.9090909090909)
+
+1. 栈区(stack)：由编译器自动分配释放 ，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈。
+1. 堆区(heap)：一般由程序员分配释放，若程序员不释放，程序结束时可能由OS回收。注意它与数据结构 中的堆是两回事，分配方式倒是类似于链表。(  下一个4KB对齐的地址处 )  
+1. 全局/静态区(static）：全局变量和静态变量的存储是放在一块的，在程序编译时分配。
+1. 文字常量区：存放常量字符串。 ( 下一个4KB对齐的地址处 )  
+1. 程序代码区：存放函数体（类的成员函数、全局函数）的二进制代码 ( 总是从 0x08048000处  开始 往高地址 ）
+
+
+& pstr +1<br />![image.png](https://cdn.nlark.com/yuque/0/2022/png/916648/1652249422281-25af00c3-c2d2-47ce-9c2b-edfa7b62abc9.png#clientId=u8a4edf50-3c8a-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=291&id=ua5444ee0&margin=%5Bobject%20Object%5D&name=image.png&originHeight=400&originWidth=743&originalType=binary&ratio=1&rotation=0&showTitle=false&size=76214&status=done&style=none&taskId=u7a625d65-f090-44e3-97ef-54240ea7fb1&title=&width=540.3636363636364)<br /> 数组名是一个常量，不能修改其值  
+
+
