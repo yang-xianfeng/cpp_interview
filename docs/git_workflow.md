@@ -14,6 +14,7 @@
 - `cx_ws/` 只是工作空间，不是当前项目的 Git 根目录。
 - `cpp_interview/` 是默认工作目录，也是 Git 命令默认执行位置。
 - 每完成一个明确批次，就提交一次 Git。
+- 默认精确提交当前改动文件，避免把无关变更混进同一次提交。
 - 提交信息必须描述本次真实改动。
 - 远端认证可用时，提交后立即推送。
 
@@ -22,7 +23,7 @@
 ```bash
 cd ~/cx_ws/cpp_interview
 git status
-git add .
+git add <changed-files>
 git commit -m "<根据本次改动填写说明>"
 git push
 ```

@@ -1,25 +1,35 @@
 # cpp_interview
 
-`cpp_interview/` 是当前项目根目录，也是 Git 仓库根目录。工作空间是 `~/cx_ws`，当前项目目录是 `~/cx_ws/cpp_interview`；日常启动 Codex/CC、执行 Git、阅读文档、修改文件，都默认在项目根目录进行。
+`cpp_interview/` 是当前工作目录，也是 Git 仓库根目录。这个项目的目标不是堆资料，而是把零散笔记、项目经历和面试表达整理成一套可复习、可包装、可投递的资产。
 
-具体 Git 提交流程见 [docs/git_workflow.md](docs/git_workflow.md)。
+## 项目定位
 
-## 目录结构
+- 主线：`Linux C++ 后端 / 服务器开发`
+- 延展：`设备接入 / 边缘计算 / Linux 嵌入式应用`
+- 结果：形成稳定的知识体系、两段可讲清的项目经历、统一的简历与口述表达
 
-- `PROJECT_GUIDE.md`：项目入口与阅读顺序。
-- `ROLE.md`：项目角色与目标。
-- `AGENT.md`：项目执行规则。
-- `notes/README.md`：笔记总目录。
-- `notes/source/`：原始笔记。
-- `notes/cleaned/`：主用笔记。
-- `docs/`：流程文档入口。
-- `tools/`：清洗与辅助脚本。
-- `archive/`：归档资料。
+## 工作方式
 
-## 文档入口
+- 这不是单纯的笔记清洗项目，而是 `导师增强式复习` 项目。
+- 在复习与项目包装阶段，可以主动补充必要知识点。
+- 补充内容优先来自 `Unix 环境高级编程` 及同等级经典资料，也可以延伸到源码、系统调用链路、工程案例和面试追问。
+- AI 的作用不是替代判断，而是帮助加深理解、补全结构、模拟工作与面试场景。
 
-- 先看 [PROJECT_GUIDE.md](PROJECT_GUIDE.md)
-- 角色定义看 [ROLE.md](ROLE.md)
-- 执行规则看 [AGENT.md](AGENT.md)
-- 流程文档从 [docs/README.md](docs/README.md) 进入
-- 笔记目录从 [notes/README.md](notes/README.md) 进入
+## 文档职责
+
+- `README.md`：只定义项目边界与总目标
+- `PROJECT_GUIDE.md`：只定义入口与阅读顺序
+- `ROLE.md`：只定义角色与工作标准
+- `AGENT.md`：只定义执行方式与输出规则
+- `CANDIDATE_PROFILE.md`：只定义候选人背景与求职边界
+- `notes/`：复习主内容
+- `docs/`：流程文档
+- `tools/`：清洗脚本与辅助工具
+
+## 使用原则
+
+- 日常工作默认在 `~/cx_ws/cpp_interview` 执行。
+- 知识复习优先看 `notes/cleaned/`，必要时再回查 `notes/source/`。
+- 项目包装、简历润色、面试表达都以真实经历为边界，不虚构。
+- AI 用来放大工程能力，不替代技术判断。
+- 同一信息尽量只保留一个权威入口，非必要不新增顶层文档或目录实体。
