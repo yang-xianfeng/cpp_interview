@@ -1,69 +1,31 @@
 # cpp_interview Guide
 
-这个文件作为项目统一入口，优先回答“先看什么、从哪里开始用”。
+这个文件是项目入口，回答三个问题：先看什么、在哪里工作、按什么流程推进。
 
-- 本地工作空间根目录：`/home/ub/cx_ws`
-- 当前项目根目录：`/home/ub/cx_ws/cpp_interview`
-- GitHub 远端发布内容：当前项目根目录内容
-- 远端仓库结构：直接从 `README.md`、`notes/`、`docs/` 开始
-- Codex/CC 推荐启动目录：`/home/ub/cx_ws/cpp_interview`
+## 工作位置
 
-## 先看哪里
+- 工作空间：`/home/ub/cx_ws`
+- 项目根目录：`/home/ub/cx_ws/cpp_interview`
+- Codex/CC 默认启动目录：`/home/ub/cx_ws/cpp_interview`
 
-如果你是第一次进入这个项目，建议按下面顺序：
+## 阅读顺序
 
 1. [README.md](/home/ub/cx_ws/cpp_interview/README.md:1)
-   - 先理解项目结构和文件职责。
 2. [ROLE.md](/home/ub/cx_ws/cpp_interview/ROLE.md:1)
-   - 明确导师角色、工作视角和目标边界。
 3. [AGENT.md](/home/ub/cx_ws/cpp_interview/AGENT.md:1)
-   - 明确执行方式、输出格式和推进规则。
 4. [notes/README.md](/home/ub/cx_ws/cpp_interview/notes/README.md:1)
-   - 先按主题总目录选阅读路径。
-5. `notes/cleaned/`
-   - 默认优先使用这套清洗后的笔记做复习和面试准备。
-6. `notes/source/`
-   - 遇到内容丢失、清洗过度或需要回查原文时，再回到原始笔记。
+5. [docs/README.md](/home/ub/cx_ws/cpp_interview/docs/README.md:1)
 
-## 怎么使用这套内容
+## 使用路径
 
-按用途划分，入口如下：
+- 知识复习：优先阅读 `notes/cleaned/`
+- 原文回查：需要时再看 `notes/source/`
+- 项目包装：重点看 `23-搜索引擎项目.md`、`26-Workflow重写NetDisk.md`
+- 面试准备：重点看 `30-面试经验.md`、`31-面试简历.md`、`32-15天复习计划.md`
+- 流程规范：统一从 `docs/` 进入
 
-- 复习主线
-  - 从 `notes/cleaned/13-CPP基础.md`、`14-类与对象.md`、`19-STL.md`、`05-Linux系统编程.md`、`08-线程.md`、`10-网络编程.md` 开始。
-- 主题导航
-  - 先看 [notes/README.md](/home/ub/cx_ws/cpp_interview/notes/README.md:1)，按“语言 / Linux / 网络 / 数据库 / 项目 / 面试”选专题。
-- 项目包装
-  - 重点看 `notes/cleaned/23-搜索引擎项目.md` 和 `26-Workflow重写NetDisk.md`。
-- 简历与面试
-  - 重点看 `notes/cleaned/30-面试经验.md`、`31-面试简历.md`、`32-15天复习计划.md`。
-- 清洗工具
-  - 脚本在 `tools/clean_notes.py`。
-- 项目文档
-  - 统一从 `docs/README.md` 进入。
+## 默认规则
 
-## 目录职责
-
-- `ROLE.md`
-  - 项目级角色定义。
-- `AGENT.md`
-  - 项目级执行规则。
-- `notes/README.md`
-  - 笔记总目录。
-- `notes/source/`
-  - 原始笔记副本。
-- `notes/cleaned/`
-  - 当前主用笔记。
-- `tools/`
-  - 清洗和辅助脚本。
-- `docs/`
-  - 项目流程文档。
-- `archive/`
-  - 原始资料压缩归档。
-
-## 当前推荐规则
-
-- 日常复习默认先看 `notes/README.md`，再进入 `notes/cleaned/`。
-- 只有在需要校对原文时，才回看 `notes/source/` 或 `archive/source_notes_backup.zip`。
-- 不再使用旧的 `CppNotes/`、`CppNotes_refined/` 目录结构。
-- 日常使用 Codex/CC 时，优先在项目根目录 `cpp_interview/` 启动，而不是在整个 `cx_ws/` 工作空间启动。
+- 在项目根目录执行 Git。
+- 在项目根目录启动 Codex/CC。
+- 工作空间用于容纳多个项目，不承担当前项目的执行入口角色。
