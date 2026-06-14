@@ -1,6 +1,18 @@
 # cpp_interview
 
-这个仓库把原来的 `CppNotes/`、`CppNotes_refined/` 和 `tools/` 合并成一个统一项目。
+本地工作空间根目录是 `/home/ub/cx_ws`，当前项目目录恢复为 `/home/ub/cx_ws/cpp_interview`。
+
+GitHub 远端发布时，不直接上传整个 `cx_ws`，而是只发布本地 `cpp_interview/` 子目录的内容到远端仓库根目录。
+
+这意味着远端仓库中只保留一层项目内容：
+
+- 本地 `cx_ws/cpp_interview/README.md` -> 远端 `README.md`
+- 本地 `cx_ws/cpp_interview/notes/` -> 远端 `notes/`
+- 本地 `cx_ws/cpp_interview/docs/` -> 远端 `docs/`
+
+远端不会出现 `cx_ws/`，也不会出现二层 `cpp_interview/cpp_interview/`。
+
+这个项目把原来的 `CppNotes/`、`CppNotes_refined/` 和 `tools/` 合并成一个统一项目。
 
 ## 目录结构
 
@@ -13,6 +25,9 @@
 - `PROJECT_GUIDE.md`
   - 项目统一入口。
   - 负责回答“先看什么、从哪里开始使用”。
+- `notes/README.md`
+  - 按主题分类的总目录。
+  - 用来快速定位语言、Linux、网络、数据库、项目、面试相关笔记。
 - `notes/source/`
   - 原始版笔记。
 - `notes/cleaned/`
@@ -29,7 +44,7 @@
 
 `CppNotes/` 和 `CppNotes_refined/` 中的 `ROLE.md` 与 `AGENT.md` 内容一致，没有版本差异，因此不应该继续各放一份。更合理的做法是：
 
-1. 把 `ROLE.md` 和 `AGENT.md` 提升到仓库根目录。
+1. 把 `ROLE.md` 和 `AGENT.md` 放到项目根目录 `cx_ws/cpp_interview/`。
 2. 把 `notes/source/` 和 `notes/cleaned/` 只当作内容目录，不再放项目级角色说明。
 3. 只有在某个子目录需要独立工作规则时，才在该子目录额外新增一份局部 `AGENT.md` 或 `ROLE.md`。
 
@@ -38,7 +53,7 @@
 - `ROLE.md` 约束的是整个项目的导师身份，不依赖原始笔记还是 refined 笔记。
 - `AGENT.md` 约束的是整个项目的推进方式，也不应绑定到某一套笔记副本。
 - `notes/source/` 和 `notes/cleaned/` 的差别是内容状态，不是角色状态。
-- `PROJECT_GUIDE.md` 负责统一导航，因此也应该放在仓库根目录。
+- `PROJECT_GUIDE.md` 负责统一导航，因此也应该放在项目根目录。
 - `docs/` 中的流程文档属于项目文档，也应与项目内容同级管理。
 
 ## 以后怎么扩展
@@ -48,14 +63,15 @@
 - `source` 侧重“保真存档”；
 - `cleaned` 侧重“结构清洗与主用复习”；
 
-那么可以保留根目录公共 `ROLE.md`，再只给特定子目录补一份局部 `AGENT.md`，作为覆盖规则，而不是复制两份完全相同的项目级文件。
+那么可以保留项目根目录公共 `ROLE.md`，再只给特定子目录补一份局部 `AGENT.md`，作为覆盖规则，而不是复制两份完全相同的项目级文件。
 
 ## 清理策略
 
-项目完成合并后，工作区根目录的旧 `CppNotes/`、`CppNotes_refined/`、`tools/` 可以清理。
+项目完成合并后，工作空间中的旧 `CppNotes/`、`CppNotes_refined/`、`tools/` 可以清理。
 
 建议保留方式：
 
 1. 在 `archive/` 中保留一份最初 `CppNotes/` 的 zip 归档。
-2. 项目日常使用统一切换到仓库根目录。
-3. SOP、工作单和 Git 流程说明统一放在 `docs/`。
+2. 项目日常使用统一切换到 `cx_ws/cpp_interview/`。
+3. 本地 Git 在工作空间 `cx_ws/` 管理，远端发布时只发布 `cpp_interview/` 子目录内容。
+4. SOP、工作单和 Git 流程说明统一放在 `docs/`。

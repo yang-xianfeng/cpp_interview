@@ -1,20 +1,27 @@
 # cpp_interview Guide
 
-这个文件作为仓库统一入口，优先回答“先看什么、从哪里开始用”。
+这个文件作为项目统一入口，优先回答“先看什么、从哪里开始用”。
+
+- 本地工作空间根目录：`/home/ub/cx_ws`
+- 当前项目根目录：`/home/ub/cx_ws/cpp_interview`
+- GitHub 远端发布内容：本地 `cpp_interview/` 子目录
+- 远端仓库结构：直接从 `README.md`、`notes/`、`docs/` 开始，不再额外套一层 `cpp_interview/`
 
 ## 先看哪里
 
 如果你是第一次进入这个项目，建议按下面顺序：
 
-1. [README.md](/home/ub/cx_ws/README.md:1)
+1. [README.md](/home/ub/cx_ws/cpp_interview/README.md:1)
    - 先理解项目结构和文件职责。
-2. [ROLE.md](/home/ub/cx_ws/ROLE.md:1)
+2. [ROLE.md](/home/ub/cx_ws/cpp_interview/ROLE.md:1)
    - 明确导师角色、工作视角和目标边界。
-3. [AGENT.md](/home/ub/cx_ws/AGENT.md:1)
+3. [AGENT.md](/home/ub/cx_ws/cpp_interview/AGENT.md:1)
    - 明确执行方式、输出格式和推进规则。
-4. `notes/cleaned/`
+4. [notes/README.md](/home/ub/cx_ws/cpp_interview/notes/README.md:1)
+   - 先按主题总目录选阅读路径。
+5. `notes/cleaned/`
    - 默认优先使用这套清洗后的笔记做复习和面试准备。
-5. `notes/source/`
+6. `notes/source/`
    - 遇到内容丢失、清洗过度或需要回查原文时，再回到原始笔记。
 
 ## 怎么使用这套内容
@@ -23,6 +30,8 @@
 
 - 复习主线
   - 从 `notes/cleaned/13-CPP基础.md`、`14-类与对象.md`、`19-STL.md`、`05-Linux系统编程.md`、`08-线程.md`、`10-网络编程.md` 开始。
+- 主题导航
+  - 先看 [notes/README.md](/home/ub/cx_ws/cpp_interview/notes/README.md:1)，按“语言 / Linux / 网络 / 数据库 / 项目 / 面试”选专题。
 - 项目包装
   - 重点看 `notes/cleaned/23-搜索引擎项目.md` 和 `26-Workflow重写NetDisk.md`。
 - 简历与面试
@@ -38,6 +47,8 @@
   - 项目级角色定义。
 - `AGENT.md`
   - 项目级执行规则。
+- `notes/README.md`
+  - 笔记总目录。
 - `notes/source/`
   - 原始笔记副本。
 - `notes/cleaned/`
@@ -51,6 +62,6 @@
 
 ## 当前推荐规则
 
-- 日常复习默认只看 `notes/cleaned/`。
+- 日常复习默认先看 `notes/README.md`，再进入 `notes/cleaned/`。
 - 只有在需要校对原文时，才回看 `notes/source/` 或 `archive/source_notes_backup.zip`。
 - 不再使用旧的 `CppNotes/`、`CppNotes_refined/` 目录结构。

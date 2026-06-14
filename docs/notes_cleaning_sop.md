@@ -24,14 +24,14 @@
 
 输入：
 
-- 原始目录：`/home/ub/cx_ws/notes/source`
-- 清理脚本：[clean_notes.py](/home/ub/cx_ws/tools/clean_notes.py)
+- 原始目录：`/home/ub/cx_ws/cpp_interview/notes/source`
+- 清理脚本：[clean_notes.py](/home/ub/cx_ws/cpp_interview/tools/clean_notes.py)
 
 输出：
 
-- 清理后副本目录：`/home/ub/cx_ws/notes/cleaned`
-- 清理报告：`/home/ub/cx_ws/notes/cleaned/cleaning_report.json`
-- 复习计划：[32-15天复习计划.md](/home/ub/cx_ws/notes/cleaned/32-15天复习计划.md)
+- 清理后副本目录：`/home/ub/cx_ws/cpp_interview/notes/cleaned`
+- 清理报告：`/home/ub/cx_ws/cpp_interview/notes/cleaned/cleaning_report.json`
+- 复习计划：[32-15天复习计划.md](/home/ub/cx_ws/cpp_interview/notes/cleaned/32-15天复习计划.md)
 
 ## 4. 本次执行结论
 
@@ -57,7 +57,7 @@
 确认原始目录存在且包含 Markdown 文件。
 
 ```bash
-rg --files /home/ub/cx_ws/notes/source
+rg --files /home/ub/cx_ws/cpp_interview/notes/source
 ```
 
 ### Step 2：执行副本清理
@@ -65,13 +65,13 @@ rg --files /home/ub/cx_ws/notes/source
 运行清理脚本，生成新的清理后副本。
 
 ```bash
-python3 /home/ub/cx_ws/tools/clean_notes.py
+python3 /home/ub/cx_ws/cpp_interview/tools/clean_notes.py
 ```
 
 如果希望同时把远程图片下载到本地 `_assets` 目录，可使用：
 
 ```bash
-python3 /home/ub/cx_ws/tools/clean_notes.py --download-images
+python3 /home/ub/cx_ws/cpp_interview/tools/clean_notes.py --download-images
 ```
 
 ### Step 3：校验清理结果
@@ -79,7 +79,7 @@ python3 /home/ub/cx_ws/tools/clean_notes.py --download-images
 检查副本中是否仍残留 `<br>` 或图片链接 fragment。
 
 ```bash
-rg -n --glob '*.md' '<br>|https?://[^)]*\.(png|jpg|jpeg|gif|webp|bmp)#' /home/ub/cx_ws/notes/cleaned
+rg -n --glob '*.md' '<br>|https?://[^)]*\.(png|jpg|jpeg|gif|webp|bmp)#' /home/ub/cx_ws/cpp_interview/notes/cleaned
 ```
 
 预期结果：
@@ -89,7 +89,7 @@ rg -n --glob '*.md' '<br>|https?://[^)]*\.(png|jpg|jpeg|gif|webp|bmp)#' /home/ub
 ### Step 4：查看清理报告
 
 ```bash
-sed -n '1,120p' /home/ub/cx_ws/notes/cleaned/cleaning_report.json
+sed -n '1,120p' /home/ub/cx_ws/cpp_interview/notes/cleaned/cleaning_report.json
 ```
 
 重点关注字段：
@@ -139,11 +139,11 @@ rm -rf /tmp/pip-install-* /tmp/pip-unpack-* /tmp/pip-req-tracker-*
 说明：
 
 - 本次已清理对应 `/tmp` 临时目录。
-- 旧工作区根目录中的 `tools/__pycache__` 已清理；当前脚本位于 `tools/`。
+- 旧工作区根目录中的 `tools/__pycache__` 已清理；当前脚本位于项目目录的 `tools/`。
 
 ## 7. 本次脚本设计说明
 
-当前脚本 [clean_notes.py](/home/ub/cx_ws/tools/clean_notes.py) 的设计原则如下：
+当前脚本 [clean_notes.py](/home/ub/cx_ws/cpp_interview/tools/clean_notes.py) 的设计原则如下：
 
 - 默认只依赖 Python 标准库。
 - 不再依赖 `requests`。
@@ -166,8 +166,8 @@ rm -rf /tmp/pip-install-* /tmp/pip-unpack-* /tmp/pip-req-tracker-*
 如需回滚本次副本处理，仅需删除副本目录并重新执行脚本：
 
 ```bash
-rm -rf /home/ub/cx_ws/notes/cleaned
-python3 /home/ub/cx_ws/tools/clean_notes.py
+rm -rf /home/ub/cx_ws/cpp_interview/notes/cleaned
+python3 /home/ub/cx_ws/cpp_interview/tools/clean_notes.py
 ```
 
 说明：
@@ -177,31 +177,36 @@ python3 /home/ub/cx_ws/tools/clean_notes.py
 
 ## 10. GitHub 同步要求
 
-每次完整执行清洗流程并确认结果后，必须至少提交一次 Git；如果本机已配置远端并认证可用，则继续推送到 GitHub。
+每次完整执行清洗流程并确认结果后，必须至少提交一次 Git；如果本机已配置远端并认证可用，则继续把 `cpp_interview/` 子目录发布到 GitHub 远端根目录。
 
 要求：
 
+- 每次完成一个明确批次后都要提交一次 Git。
+- 一个批次可以是一次清洗、一轮文档修订、一次目录整理，或某个专题的集中更新。
 - `git commit -m` 的说明必须根据本次实际改动来写。
 - 不允许长期复用过于空泛的提交信息。
+- 远端发布后，仓库根目录应直接看到 `README.md`、`notes/`、`docs/`、`tools/`，而不是再出现一层 `cpp_interview/`。
 
 标准命令：
 
 ```bash
 cd /home/ub/cx_ws
 git status
-git add .
+git add cpp_interview
 git commit -m "<根据本次清洗内容填写说明>"
-git push
+git subtree split --prefix=cpp_interview -b publish-cpp-interview
+git push --force origin publish-cpp-interview:master
+git branch -D publish-cpp-interview
 ```
 
 如果本次只更新了某个专题，也可以把提交信息写得更具体，例如：
 
 ```bash
 git commit -m "Refresh cleaned notes and SOP"
-git commit -m "Rename notes files and flatten repository layout"
+git commit -m "Refresh notes index and cleaning docs"
 ```
 
-也可以参考单独的 Git 操作文档：[git_workflow.md](/home/ub/cx_ws/docs/git_workflow.md:1)
+也可以参考单独的 Git 操作文档：[git_workflow.md](/home/ub/cx_ws/cpp_interview/docs/git_workflow.md:1)
 
 ## 11. 后续建议
 
