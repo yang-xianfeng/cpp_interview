@@ -1,8 +1,8 @@
 # cpp_interview
 
-本地工作空间根目录是 `/home/ub/cx_ws`，当前项目目录恢复为 `/home/ub/cx_ws/cpp_interview`。
+本地工作空间根目录是 `/home/ub/cx_ws`，当前项目目录是 `/home/ub/cx_ws/cpp_interview`。
 
-GitHub 远端发布时，不直接上传整个 `cx_ws`，而是只发布本地 `cpp_interview/` 子目录的内容到远端仓库根目录。
+`cpp_interview/` 本身就是 Git 仓库根目录，GitHub 远端仓库也直接对应这一层项目内容。
 
 这意味着远端仓库中只保留一层项目内容：
 
@@ -23,7 +23,14 @@ GitHub 远端发布时，不直接上传整个 `cx_ws`，而是只发布本地 `
 
 这样本地项目名和远端仓库名一致时，确实可以直接推送，不需要 `subtree`。
 
-历史上如果把 `.git` 放在 `cx_ws/` 这一层，那么 `cpp_interview/` 会被当成子目录，直接 `git push` 时远端就会多出一层 `cpp_interview/`。当前项目已经不再采用这种结构。
+历史上如果把 `.git` 放在 `cx_ws/` 这一层，那么 `cpp_interview/` 会被当成子目录，直接 `git push` 时远端就会多出一层 `cpp_interview/`。当前项目已经完成标准化，不再采用这种结构。
+
+## Codex/CC 使用建议
+
+- `cx_ws/` 只作为本地工作空间，用来容纳多个项目。
+- `cpp_interview/` 才是当前项目的工作根目录。
+- 日常打开 Codex/CC、执行 Git、阅读项目文档、修改文件时，都应以 `cx_ws/cpp_interview/` 作为当前目录。
+- 只有在你明确要管理多个项目时，才在 `cx_ws/` 这一层工作；否则容易再次混淆工作空间和项目根目录。
 
 这个项目把原来的 `CppNotes/`、`CppNotes_refined/` 和 `tools/` 合并成一个统一项目。
 

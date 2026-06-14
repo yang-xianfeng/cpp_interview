@@ -4,8 +4,9 @@
 
 - 本地工作空间根目录：`/home/ub/cx_ws`
 - 当前项目根目录：`/home/ub/cx_ws/cpp_interview`
-- GitHub 远端发布内容：本地 `cpp_interview/` 子目录
-- 远端仓库结构：直接从 `README.md`、`notes/`、`docs/` 开始，不再额外套一层 `cpp_interview/`
+- GitHub 远端发布内容：当前项目根目录内容
+- 远端仓库结构：直接从 `README.md`、`notes/`、`docs/` 开始
+- Codex/CC 推荐启动目录：`/home/ub/cx_ws/cpp_interview`
 
 ## 先看哪里
 
@@ -65,3 +66,4 @@
 - 日常复习默认先看 `notes/README.md`，再进入 `notes/cleaned/`。
 - 只有在需要校对原文时，才回看 `notes/source/` 或 `archive/source_notes_backup.zip`。
 - 不再使用旧的 `CppNotes/`、`CppNotes_refined/` 目录结构。
+- 日常使用 Codex/CC 时，优先在项目根目录 `cpp_interview/` 启动，而不是在整个 `cx_ws/` 工作空间启动。

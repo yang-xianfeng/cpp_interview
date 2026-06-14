@@ -6,9 +6,10 @@
 
 - 本地工作空间根目录：`/home/ub/cx_ws`
 - 当前项目目录：`/home/ub/cx_ws/cpp_interview`
-- GitHub 远端仓库根目录：发布后的 `cpp_interview/` 子目录内容
-- 远端目录层级：只保留一层项目内容，不出现 `cpp_interview/cpp_interview`
+- GitHub 远端仓库根目录：当前项目根目录内容
+- 远端目录层级：直接从 `README.md`、`notes/`、`docs/`、`tools/` 开始
 - 当前远端：`origin -> git@github.com:yang-xianfeng/cpp_interview.git`
+- Codex/CC 默认启动目录：`/home/ub/cx_ws/cpp_interview`
 
 ## 标准形态
 
