@@ -177,7 +177,7 @@ python3 /home/ub/cx_ws/cpp_interview/tools/clean_notes.py
 
 ## 10. GitHub 同步要求
 
-每次完整执行清洗流程并确认结果后，必须至少提交一次 Git；如果本机已配置远端并认证可用，则继续把 `cpp_interview/` 子目录发布到 GitHub 远端根目录。
+每次完整执行清洗流程并确认结果后，必须至少提交一次 Git；如果本机已配置远端并认证可用，则继续同步到 GitHub。
 
 要求：
 
@@ -185,18 +185,17 @@ python3 /home/ub/cx_ws/cpp_interview/tools/clean_notes.py
 - 一个批次可以是一次清洗、一轮文档修订、一次目录整理，或某个专题的集中更新。
 - `git commit -m` 的说明必须根据本次实际改动来写。
 - 不允许长期复用过于空泛的提交信息。
-- 远端发布后，仓库根目录应直接看到 `README.md`、`notes/`、`docs/`、`tools/`，而不是再出现一层 `cpp_interview/`。
+- Git 命令默认在项目根目录 `/home/ub/cx_ws/cpp_interview` 执行。
+- 远端发布后，仓库根目录应直接看到 `README.md`、`notes/`、`docs/`、`tools/`。
 
-标准命令：
+推荐标准命令：
 
 ```bash
-cd /home/ub/cx_ws
+cd /home/ub/cx_ws/cpp_interview
 git status
-git add cpp_interview
+git add .
 git commit -m "<根据本次清洗内容填写说明>"
-git subtree split --prefix=cpp_interview -b publish-cpp-interview
-git push --force origin publish-cpp-interview:master
-git branch -D publish-cpp-interview
+git push
 ```
 
 如果本次只更新了某个专题，也可以把提交信息写得更具体，例如：

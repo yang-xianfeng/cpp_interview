@@ -12,6 +12,25 @@ GitHub 远端发布时，不直接上传整个 `cx_ws`，而是只发布本地 `
 
 远端不会出现 `cx_ws/`，也不会出现二层 `cpp_interview/cpp_interview/`。
 
+## 当前现状与推荐形态
+
+你现在之所以需要 `subtree` 这类额外发布动作，不是因为本地项目名和远端仓库名都叫 `cpp_interview`，而是因为当前 `.git` 在工作空间根目录 `/home/ub/cx_ws`，不在项目目录 `/home/ub/cx_ws/cpp_interview`。
+
+这会导致：
+
+- Git 眼里的仓库根目录是 `cx_ws`
+- `cpp_interview/` 只是仓库里的一个子目录
+- 如果直接 `git push`，远端就会收到一层额外的 `cpp_interview/`
+
+对刚开始使用 Codex/CC 的场景，更推荐的标准形态是：
+
+- `cx_ws/` 只是你的本地工作空间，不承担 Git 仓库根的角色
+- `cx_ws/cpp_interview/` 才是项目根目录
+- `.git` 也位于 `cx_ws/cpp_interview/`
+- 平时在项目根直接执行 `git add`、`git commit`、`git push`
+
+这样本地项目名和远端仓库名一致时，确实可以直接推送，不需要 `subtree`。
+
 这个项目把原来的 `CppNotes/`、`CppNotes_refined/` 和 `tools/` 合并成一个统一项目。
 
 ## 目录结构
@@ -73,5 +92,5 @@ GitHub 远端发布时，不直接上传整个 `cx_ws`，而是只发布本地 `
 
 1. 在 `archive/` 中保留一份最初 `CppNotes/` 的 zip 归档。
 2. 项目日常使用统一切换到 `cx_ws/cpp_interview/`。
-3. 本地 Git 在工作空间 `cx_ws/` 管理，远端发布时只发布 `cpp_interview/` 子目录内容。
+3. 当前兼容模式下，本地 Git 仍在工作空间 `cx_ws/` 管理，远端发布时只发布 `cpp_interview/` 子目录内容；长期建议迁移到“项目目录自身就是 Git 根目录”的标准形态。
 4. SOP、工作单和 Git 流程说明统一放在 `docs/`。
