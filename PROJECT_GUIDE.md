@@ -2,21 +2,21 @@
 
 这个文件是项目入口，回答三个问题：先看什么、在哪里工作、按什么流程推进。
 
-## 工作位置
+## 先看什么
 
-- 工作空间：`/home/ub/cx_ws`
-- 项目根目录：`/home/ub/cx_ws/cpp_interview`
-- Codex/CC 默认启动目录：`/home/ub/cx_ws/cpp_interview`
+1. [README.md](README.md)：确认项目边界与入口文件。
+2. [ROLE.md](ROLE.md)：确认这个项目的目标和工作视角。
+3. [AGENT.md](AGENT.md)：确认执行规则、输出方式、提交要求。
+4. [notes/README.md](notes/README.md)：进入复习内容。
+5. [docs/README.md](docs/README.md)：进入流程文档。
 
-## 阅读顺序
+## 在哪里工作
 
-1. [README.md](/home/ub/cx_ws/cpp_interview/README.md:1)
-2. [ROLE.md](/home/ub/cx_ws/cpp_interview/ROLE.md:1)
-3. [AGENT.md](/home/ub/cx_ws/cpp_interview/AGENT.md:1)
-4. [notes/README.md](/home/ub/cx_ws/cpp_interview/notes/README.md:1)
-5. [docs/README.md](/home/ub/cx_ws/cpp_interview/docs/README.md:1)
+- 工作空间：`~/cx_ws`
+- 项目根目录：`~/cx_ws/cpp_interview`
+- Codex/CC 默认启动目录：`~/cx_ws/cpp_interview`
 
-## 使用路径
+## 按什么路径推进
 
 - 知识复习：优先阅读 `notes/cleaned/`
 - 原文回查：需要时再看 `notes/source/`
@@ -26,6 +26,6 @@
 
 ## 默认规则
 
-- 在项目根目录执行 Git。
-- 在项目根目录启动 Codex/CC。
-- 工作空间用于容纳多个项目，不承担当前项目的执行入口角色。
+- Git 默认在项目根目录执行。
+- Codex/CC 默认在项目根目录启动。
+- `cx_ws/` 只承载多个项目，不承担当前项目入口角色。

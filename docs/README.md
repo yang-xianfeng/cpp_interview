@@ -1,18 +1,14 @@
 # Project Docs
 
-这个目录存放项目流程文档，而不是笔记内容本身。
+这个目录只放流程文档，不放知识笔记。
 
-## 文档入口
+## 进入顺序
 
-- [notes_cleaning_sop.md](/home/ub/cx_ws/cpp_interview/docs/notes_cleaning_sop.md:1)
-  - 说明如何从 `notes/source/` 生成 `notes/cleaned/`，以及完成后如何同步到 GitHub。
-- [llm_polish_workflow.md](/home/ub/cx_ws/cpp_interview/docs/llm_polish_workflow.md:1)
-  - 说明哪些整理适合交给 LLM，以及如何逐文件润色 `notes/cleaned/`。
-- [git_workflow.md](/home/ub/cx_ws/cpp_interview/docs/git_workflow.md:1)
-  - 说明每次完成后如何提交和推送 Git。
+1. [git_workflow.md](git_workflow.md)：先确认提交和推送规则。
+2. [notes_cleaning_sop.md](notes_cleaning_sop.md)：需要清洗笔记时再看。
+3. [llm_polish_workflow.md](llm_polish_workflow.md)：需要润色 `notes/cleaned/` 时再看。
 
 ## 使用建议
 
-- 做确定性清洗时，先看 `notes_cleaning_sop.md`。
-- 做可读性润色时，先看 `llm_polish_workflow.md`。
-- 日常导航仍以项目根目录的 [PROJECT_GUIDE.md](/home/ub/cx_ws/cpp_interview/PROJECT_GUIDE.md:1) 为准。
+- 日常导航仍以 [PROJECT_GUIDE.md](../PROJECT_GUIDE.md) 为准。
+- 流程变更优先更新这里引用到的文档，不在多个入口重复解释同一件事。
