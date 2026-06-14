@@ -14,7 +14,7 @@
 
 - 工作空间：`~/cx_ws`
 - 项目根目录：`~/cx_ws/cpp_interview`
-- Codex/CC 默认启动目录：`~/cx_ws/cpp_interview`
+- Codex/CC 与 Git 默认都在 `~/cx_ws/cpp_interview` 执行
 
 ## 按什么路径推进
 
@@ -23,9 +23,3 @@
 - 项目包装：重点看 `23-搜索引擎项目.md`、`26-Workflow重写NetDisk.md`
 - 面试准备：重点看 `30-面试经验.md`、`31-面试简历.md`、`32-15天复习计划.md`
 - 流程规范：统一从 `docs/` 进入
-
-## 默认规则
-
-- Git 默认在项目根目录执行。
-- Codex/CC 默认在项目根目录启动。
-- `cx_ws/` 只承载多个项目，不承担当前项目入口角色。

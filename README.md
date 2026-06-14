@@ -1,18 +1,8 @@
 # cpp_interview
 
-`cpp_interview/` 是当前项目根目录，也是 Git 仓库根目录。日常启动 Codex/CC、执行 Git、阅读文档、修改文件，都默认在这个目录下进行。
+`cpp_interview/` 是当前项目根目录，也是 Git 仓库根目录。工作空间是 `~/cx_ws`，当前项目目录是 `~/cx_ws/cpp_interview`；日常启动 Codex/CC、执行 Git、阅读文档、修改文件，都默认在项目根目录进行。
 
-## 默认工作位置
-
-- 工作空间：`~/cx_ws`
-- 项目根目录：`~/cx_ws/cpp_interview`
-- Git 根目录：`~/cx_ws/cpp_interview/.git`
-
-工作约定：
-
-- `cx_ws/` 只是工作空间，不是当前项目的执行入口。
-- `cpp_interview/` 是默认工作目录，也是 Git 命令的默认执行位置。
-- 具体 Git 提交流程见 [docs/git_workflow.md](docs/git_workflow.md)。
+具体 Git 提交流程见 [docs/git_workflow.md](docs/git_workflow.md)。
 
 ## 目录结构
 

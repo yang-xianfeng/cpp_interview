@@ -127,7 +127,7 @@ python3 tools/clean_notes.py
 
 ## 9. Git 同步要求
 
-每次完整执行清洗流程并确认结果后，必须至少提交一次 Git；如果本机已配置远端并认证可用，则继续同步到 GitHub。
+每次完整执行清洗流程并确认结果后，必须至少提交一次 Git；如果远端认证可用，则继续推送。
 
 要求：
 
@@ -136,25 +136,7 @@ python3 tools/clean_notes.py
 - `git commit -m` 的说明必须根据本次实际改动来写。
 - 不允许长期复用过于空泛的提交信息。
 - Git 命令默认在项目根目录执行。
-
-推荐标准命令：
-
-```bash
-cd ~/cx_ws/cpp_interview
-git status
-git add .
-git commit -m "<根据本次清洗内容填写说明>"
-git push
-```
-
-如果本次只更新了某个专题，也可以把提交信息写得更具体，例如：
-
-```bash
-git commit -m "Refresh cleaned notes and SOP"
-git commit -m "Refresh notes index and cleaning docs"
-```
-
-也可以参考单独的 Git 操作文档：[git_workflow.md](git_workflow.md)
+- 具体命令和提交模板统一以 [git_workflow.md](git_workflow.md) 为准。
 
 ## 10. 后续建议
 
